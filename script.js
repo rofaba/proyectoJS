@@ -8,10 +8,10 @@ if (rspta != "si") {
     document.write ("Qué tengas un buen día!!!");
 }
 else {
-        let numero = parseInt(prompt("Ingresa un número entero entre 1 y 100"));
+        let numero = parseInt(prompt("Hasta que número entero quieres que te cuente. Ej. 50"));
         for (let i=1; i<numero+1;i++) {
         document.write (i);
-        document.write (" -  ");
+        document.write (" - ");
         }
     document.write (" <br> ");
     document.write ("Gracias, qué tengas un buen día.");     
