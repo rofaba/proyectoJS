@@ -36,24 +36,28 @@ switch (rspta ) {
         agradecimiento();   
     break;
     
-
     case "l":
 
         let letra = (prompt("Ingresa tu letra favorita y te muestro el alfabeto hasta ella"));
         let letraIndice = letra.toLowerCase();
         
-        const letrasAlfabeto = ['a', 'b', 'c', 'ch', 'd','e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+        const letrasAlfabeto = ['A', 'B', 'C', 'D','E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 
         let posicionBuscada = letrasAlfabeto.indexOf(letraIndice);
+
+        if (posicionBuscada == -1){
+            document.write ("El caracter ingresado no es una letra. Lo siento, no puedo mostrártelas.")
+        }
+        else {    
         const letrasParaMostrar = letrasAlfabeto.slice (0,posicionBuscada+1);
         
         document.write (letrasParaMostrar.join(", "));
 
-        agradecimiento();    
+        agradecimiento();
+        }    
     break;
 
     default: 
 
     despedida();
-
 }
