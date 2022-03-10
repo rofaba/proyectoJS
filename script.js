@@ -39,7 +39,7 @@ switch (rspta ) {
     case "l":
 
         let letra = (prompt("Ingresa tu letra favorita y te muestro el alfabeto hasta ella"));
-        let letraIndice = letra.toLowerCase();
+        let letraIndice = letra.toUpperCase();
         
         const letrasAlfabeto = ['A', 'B', 'C', 'D','E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 
