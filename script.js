@@ -10,13 +10,13 @@ function saludaUsuario(nombre){
     }
 saludaUsuario(nombre);    
 
-let seleccion = prompt("Estoy aprendiendo muchas cosas nuevas. Puedo mostrarte los números o las letras. ¿ Qué prefieres ?  Elige: Números o Letras")
+let seleccion = prompt("Estoy aprendiendo muchas cosas nuevas. Puedo mostrarte los números o las letras. ¿ Qué prefieres ?  Elige: Números (N) o Letras(L)")
 let rspta = seleccion.toLowerCase();
 
 
 switch (rspta ) {
 
-    case "numeros" || "números":
+    case "n":
         let numero = parseInt(prompt("Ingresa un número entero y yo te cuento. Ej. 50"));
         let i = 1; 
             while (i < numero +1) {           
@@ -34,7 +34,7 @@ switch (rspta ) {
     break;
     
 
-    case "letras":
+    case "l":
 
         let letra = (prompt("Ingresa tu letra favorita y te muestro el alfabeto hasta ella"));
         let letraIndice = letra.toLowerCase();
