@@ -1,11 +1,12 @@
 body {
-    padding:20rem;
-    background-color: #ffd90f;
-    font-family: 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-size: 3rem;
-    font-weight: bold;
-    color: black;
+  padding: 20rem;
+  background-color: #ffd90f;
+  font-family: "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode",
+    Geneva, Verdana, sans-serif;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 3rem;
+  font-weight: bold;
+  color: black;
 }
