@@ -1,6 +1,6 @@
 let nombre = prompt("Hola, por favor escribe tu nombre");
 function despedida (){
-   document.write ("No hay problema, tal vez en otra oportunidad.");
+   document.write (`No hay problema ${nombre}, tal vez en otra oportunidad.`);
    document.write (" <br> ");
    document.write ("Qué tengas un buen día!!!"); 
 }
@@ -13,6 +13,11 @@ saludaUsuario(nombre);
 let seleccion = prompt("Estoy aprendiendo muchas cosas nuevas. Puedo mostrarte los números o las letras. ¿ Qué prefieres ?  Elige: Números (N) o Letras(L)")
 let rspta = seleccion.toLowerCase();
 
+function agradecimiento (){
+        document.write (" <br> ");
+        document.write (" <br> ");
+        document.write (`Fue entretenido, gracias ${nombre}. <br> Qué tengas un buen día.`)
+}
 
 switch (rspta ) {
 
@@ -28,9 +33,7 @@ switch (rspta ) {
                 }
         i++; 
         }   
-        document.write (" <br> ");
-        document.write (" <br> ");
-        document.write (" Fue entretenido, gracias. <br> Qué tengas un buen día.");   
+        agradecimiento();   
     break;
     
 
@@ -46,9 +49,7 @@ switch (rspta ) {
         
         document.write (letrasParaMostrar.join(", "));
 
-        document.write (" <br> ");
-        document.write (" <br> ");
-        document.write (" Fue entretenido, gracias. <br> Qué tengas un buen día.");   
+        agradecimiento();    
     break;
 
     default: 
