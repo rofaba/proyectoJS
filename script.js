@@ -1,16 +1,15 @@
-// //Simulador interactivo JS: Juego de "El Colgado"... ambientación tentativa "Los Simpsons"
+// //Simulador interactivo JS: Juego de "El Colgado".
 
 // /* PENDIENTES
 
 
-
-
 // Mecanismo búsqueda coincidencias. 
+
 // Mecanismo revision triunfo o derrota en relación a sistema vidas (a definir)
 
 // */
 
-// //creación de personajes para Proyecto Final.
+//creación de personajes para Proyecto Final.
 
 // class Personaje {
 //         constructor(nombre, edad, ocupacion) {
@@ -26,29 +25,24 @@
 // const poolPersonajes = [perso1, perso2, perso3];
 
 
-// // Pool de palabras
-
-// const poolPalabras = []; // 20 palabras
-
-// const palabraSecreta = []; // este array debe tener igual numero de espacios-guiones-equis-cuadros que la palabra escogida para mostrar a usuario
-
-// //Generador de palabra aleatoria usando clase Math para obtener index en un array de palabras base (pool palabras).
+// // Pool de palabras en un array 
 
 
+// const palabraSecreta = []; // este array debe tener igual numero de "espacios" que la palabra escogida para mostrar a usuario
+
+// //Generador de palabra aleatoria usando clase Math para obtener un index en un array de palabras base (pool palabras).
 
 // //variables y funciones
 
 // const numeroLetras = [];
 // let nombre;
 
+// TAREA ENTREGABLE 2
 
-
-// TAREA ENTREGABLE
-
-function indexRandom(minimo, maximo) {
-    var numerosPosibles = maximo + minimo;
+function indexRandom(minimo, maximo) {   //los argumentos se establerán entre 0 y el número de palabras a incluir 
+    var numerosPosibles = maximo + minimo;  
     var random = Math.random() * (numerosPosibles + 1);
-    random = Math.floor(random);
+    random = Math.floor(random);  // necesito un numero entero
     return minimo + random;
 }
 function saludaUsuario() {
@@ -60,7 +54,10 @@ function comparaLetras(letra){
     return letra == letraMayus;
 }
 
-// INICIO
+const poolPalabras = ['palabras', 'prueba', 'juego', 'colgado', 'para', 'elegir','usuario', 'pendiente', 'version', 'final']; // total de palabras (?)
+
+//INICO INTERACCION
+
 saludaUsuario()
 let palabraIngresada = prompt('Ingresa una palabra para empezar el juego');
 let palabra = palabraIngresada.toUpperCase();
@@ -68,7 +65,7 @@ let palabra = palabraIngresada.toUpperCase();
 //transformamos el string en un array (spread operator)
 const letras = [...palabra];
 
-let letraIngresada = prompt('Ahora ingresa la letra que te gustaría que buscara en tu palabra');
+let letraIngresada = prompt('Ahora ingresa una letra que te gustaría que buscara en tu palabra');
 let letraMayus = letraIngresada.toUpperCase();
 
 if (isNaN(letraMayus)){
@@ -77,12 +74,11 @@ if (isNaN(letraMayus)){
         const numeroLetras = letras.filter(comparaLetras);
         let aciertos = numeroLetras.length;
 
-        let numeroAzar = indexRandom(0,20)
-        alert(`Tu palabra ${palabraIngresada} contiene ${aciertos} letras ${letraMayus} número al azar es ${numeroAzar}`);
+        let numeroAzar = indexRandom(0,10); //obtiene un index al azar con la funcion
 
+        let palabraEnJuego = poolPalabras[numeroAzar];
+
+        alert(`Tu palabra ${palabraIngresada} contiene ${aciertos} letras ${letraMayus}, La palabra al azar es ${palabraEnJuego}`);
 }
-
         else { alert('el valor que ingresaste es un número, no una letra')}
-        // avisamos que el valor ingresado es un numero   
-      
-        
+        // avisamos que el valor ingresado es un numer
