@@ -1,93 +1,88 @@
-//Mi idea de proyecto final crear un juego interactivo tipo "colgado" o "hangman".
+// //Simulador interactivo JS: Juego de "El Colgado"... ambientación tentativa "Los Simpsons"
 
-// funciones utilizadas
+// /* PENDIENTES
 
-function despedida() {
-    document.write(`No hay problema ${nombre}, tal vez en otra oportunidad.`);
-    document.write(" <br> ");
-    document.write("Qué tengas un buen día!");
+
+
+
+// Mecanismo búsqueda coincidencias. 
+// Mecanismo revision triunfo o derrota en relación a sistema vidas (a definir)
+
+// */
+
+// //creación de personajes para Proyecto Final.
+
+// class Personaje {
+//         constructor(nombre, edad, ocupacion) {
+//             this.nombre = nombre;
+//             this.edad = edad;
+//             this.ocupacion = ocupacion; 
+//         }
+// }
+// let perso1 = new Personaje (Homero, '39 años', 'Técnico Nuclear');
+// let perso2 = new Personaje (Bart, '10 años', 'Estudiante');
+// let perso3 = new Personaje (Lisa, '8 años', 'Estudiante');
+
+// const poolPersonajes = [perso1, perso2, perso3];
+
+
+// // Pool de palabras
+
+// const poolPalabras = []; // 20 palabras
+
+// const palabraSecreta = []; // este array debe tener igual numero de espacios-guiones-equis-cuadros que la palabra escogida para mostrar a usuario
+
+// //Generador de palabra aleatoria usando clase Math para obtener index en un array de palabras base (pool palabras).
+
+
+
+// //variables y funciones
+
+// const numeroLetras = [];
+// let nombre;
+
+
+
+// TAREA ENTREGABLE
+
+function indexRandom(minimo, maximo) {
+    var numerosPosibles = maximo + minimo;
+    var random = Math.random() * (numerosPosibles + 1);
+    random = Math.floor(random);
+    return minimo + random;
 }
-function saludaUsuario(nombre) {
-    alert(`Hola ${nombre} ,es un gusto conocerte`);
-
+function saludaUsuario() {
+    alert(`Hola, te tengo un juego de palabras`);
 }
-function agradecimiento() {
-    document.write(" <br> ");
-    document.write(" <br> ");
-    document.write(`Fue entretenido, gracias ${nombre}. <br> Qué tengas un buen día.`)
+
+//esta funcion compara cada una de las letras de la palabra con la que debe buscar
+function comparaLetras(letra){
+    return letra == letraMayus;
 }
 
 // INICIO
+saludaUsuario()
+let palabraIngresada = prompt('Ingresa una palabra para empezar el juego');
+let palabra = palabraIngresada.toUpperCase();
 
-let nombre = prompt("Hola, por favor escribe tu nombre");
+//transformamos el string en un array (spread operator)
+const letras = [...palabra];
 
-saludaUsuario(nombre);
+let letraIngresada = prompt('Ahora ingresa la letra que te gustaría que buscara en tu palabra');
+let letraMayus = letraIngresada.toUpperCase();
 
-let seleccion = prompt("Estoy aprendiendo muchas cosas nuevas. Puedo mostrarte los números o las letras. ¿ Qué prefieres ?. Elige: Números (N) o Letras(L)")
-let rspta = seleccion.toLowerCase();
+if (isNaN(letraMayus)){
 
-switch (rspta) {  
+        // busca la letra en la palabra y crea un nuevo array con las coincidencias, constataremos su longitud para saber aciertos
+        const numeroLetras = letras.filter(comparaLetras);
+        let aciertos = numeroLetras.length;
 
-//el camino de los números.
-
-    case "n":
-        let numero = parseInt(prompt("Ingresa un número entero y yo te cuento. Ej. 50"));
-        
-        //en caso que el usuario no ingrese una número
-        
-        if (isNaN(numero)) {
-            document.write('El valor ingresado no es un número. Lo siento, pero no te puedo contar');
-        }
-
-        // si el valor es válido
-
-        else {
-            let i = 1;
-            while (i < numero + 1) {
-                document.write(i)
-                if (i == numero) {
-                    document.write(" . ")
-                } else {
-                    document.write(" - ")
-                }
-                i++;
-            }
-            agradecimiento();
-        }
-        break;
-
-//el camino de las letras
-
-    case "l":
-
-        let letra = (prompt("Ingresa tu letra favorita y te muestro el alfabeto hasta ella"));
-        let letraIndice = letra.toUpperCase();
-
-        const letrasAlfabeto = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-
-        let posicionBuscada = letrasAlfabeto.indexOf(letraIndice);
-
-        // en caso que el usuario no ingrese una letra
-        
-        if (posicionBuscada == -1) { 
-            document.write("El caracter ingresado no es una letra. Lo siento, no puedo mostrártelas.")
-        }
-        
-        // si el valor el válido seleccionará copiará parte del array para mostrarlo
-        
-        else {
-            const letrasParaMostrar = letrasAlfabeto.slice(0, posicionBuscada + 1);
-
-            document.write(letrasParaMostrar.join(", ")); 
-
-            agradecimiento();
-        }
-        break;
-
-// si el usuario no ingresa N o L.
-
-    default: 
-
-        document.write('Esa alternativa no la reconozco, lo siento.');
+        let numeroAzar = indexRandom(0,20)
+        alert(`Tu palabra ${palabraIngresada} contiene ${aciertos} letras ${letraMayus} número al azar es ${numeroAzar}`);
 
 }
+
+        else { alert('el valor que ingresaste es un número, no una letra')}
+        // avisamos que el valor ingresado es un numero   
+      
+        
