@@ -1,43 +1,6 @@
 // //Simulador interactivo JS: Juego de "El Colgado".
 
-// /* PENDIENTES
-
-
-// Mecanismo búsqueda coincidencias. 
-
-// Mecanismo revision triunfo o derrota en relación a sistema vidas (a definir)
-
-// */
-
-//creación de personajes para Proyecto Final.
-
-// class Personaje {
-//         constructor(nombre, edad, ocupacion) {
-//             this.nombre = nombre;
-//             this.edad = edad;
-//             this.ocupacion = ocupacion; 
-//         }
-// }
-// let perso1 = new Personaje (Homero, '39 años', 'Técnico Nuclear');
-// let perso2 = new Personaje (Bart, '10 años', 'Estudiante');
-// let perso3 = new Personaje (Lisa, '8 años', 'Estudiante');
-
-// const poolPersonajes = [perso1, perso2, perso3];
-
-
-// // Pool de palabras en un array 
-
-
-// const palabraSecreta = []; // este array debe tener igual numero de "espacios" que la palabra escogida para mostrar a usuario
-
-// //Generador de palabra aleatoria usando clase Math para obtener un index en un array de palabras base (pool palabras).
-
-// //variables y funciones
-
-// const numeroLetras = [];
-// let nombre;
-
-// TAREA ENTREGABLE 2
+// DESAFIO COMPLEMENTARIO 2
 
 function indexRandom(minimo, maximo) {   //los argumentos se establerán entre 0 y el número de palabras a incluir 
     var numerosPosibles = maximo + minimo;  
@@ -54,31 +17,44 @@ function comparaLetras(letra){
     return letra == letraMayus;
 }
 
-const poolPalabras = ['palabras', 'prueba', 'juego', 'colgado', 'para', 'elegir','usuario', 'pendiente', 'version', 'final']; // total de palabras (?)
+const poolPalabras = ['PALABRAS', 'PRUEBA', 'JUEGO', 'COLGADO', 'PARA', 'ELEGIR','USUARIO', 'PENDIENTE', 'VERSION', 'FINAL']; 
+// total de palabras aún no definido
 
-//INICO INTERACCION
+//INICIO INTERACCION
 
-saludaUsuario()
-let palabraIngresada = prompt('Ingresa una palabra para empezar el juego');
-let palabra = palabraIngresada.toUpperCase();
+const coincidencias = [];
+
+saludaUsuario();
+alert('A modo de demostración generaré un número al azar entre 0-10 , tengo solo 10 palabras por ahora');
+let numeroAleatorio = indexRandom(0,10);
+alert(`El número aleatorio generado es ${numeroAleatorio}`);
+
+let palabra = poolPalabras[numeroAleatorio];
+alert(`tu palabra aleatoria es ${palabra}`);
 
 //transformamos el string en un array (spread operator)
 const letras = [...palabra];
 
-let letraIngresada = prompt('Ahora ingresa una letra que te gustaría que buscara en tu palabra');
+let letraIngresada = prompt('Ahora ingresa una letra y te contaré en qué posición está ubicada dentro de tu palabra');
 let letraMayus = letraIngresada.toUpperCase();
+let ubicaciones = [];
 
 if (isNaN(letraMayus)){
-
-        // busca la letra en la palabra y crea un nuevo array con las coincidencias, constataremos su longitud para saber aciertos
-        const numeroLetras = letras.filter(comparaLetras);
-        let aciertos = numeroLetras.length;
-
-        let numeroAzar = indexRandom(0,10); //obtiene un index al azar con la funcion
-
-        let palabraEnJuego = poolPalabras[numeroAzar];
-
-        alert(`Tu palabra ${palabraIngresada} contiene ${aciertos} letras ${letraMayus}, La palabra al azar es ${palabraEnJuego}`);
+    let indice = 0;
+    while (indice < letras.length) {
+        if (letras[indice] == letraMayus){
+            ubicaciones.push(indice);
+            indice++;
+        }
+      
+        else {
+            indice++;
+        }
+    }
+    let numeroDeVeces = ubicaciones.length;
+    alert(`la letra ${letraMayus} se encuentra ${numeroDeVeces} veces y en posición ${ubicaciones}`);   
+}    
+else { 
+            alert('el valor que ingresaste es un número, no una letra');
 }
-        else { alert('el valor que ingresaste es un número, no una letra')}
-        // avisamos que el valor ingresado es un numer
+             // avisamos que el valor ingresado es un numero   
