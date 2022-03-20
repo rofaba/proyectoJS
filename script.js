@@ -1,7 +1,7 @@
 //Simulador interactivo JS: Juego de "El Colgado".
-// DESAFIO COMPLEMENTARIO 2 INCLUYENDO OBJETOS FUNCIONES ARRAYS Y METODOS
+// PRIMERA ENTREGA FINAL
 
-//creación de personajes .
+//creación de personajes
 class Personaje {
     constructor(nombre, edad, ocupacion) {
         this.nombre = nombre;
@@ -10,27 +10,25 @@ class Personaje {
     }
 }
 const perso1 = new Personaje('Carlos', ' 20 años ', ' Jugador Empedernido');
-const perso2 = new Personaje('Roberto', ' 15 años ', ' Estudiante');
+const perso2 = new Personaje('Facundo', ' 15 años ', ' Estudiante de Programación');
 const perso3 = new Personaje('Claudia ', ' 29 años ', ' Profesora');
 const poolPersonajes = [perso1, perso2, perso3];
 
 function saludaUsuario() {
-    alert(`Hola Amigo, hoy tengo algo nuevo que mostrarte`)
+    alert('Hola Bienvenido al Juego del Colgado, Ahorcado o HangMan')
 }
-function indexRandom(minimo, maximo) {   //los argumentos se establerán entre 0 y el número total de palabras 
+function indexRandom(minimo, maximo) {   //número al azar para extraer palabra desde array base 
     var numerosPosibles = maximo - minimo;
     var random = Math.random() * (numerosPosibles + 1);
-    random = Math.floor(random);  // necesito un numero entero
+    random = Math.floor(random);  // transformación a numero entero
     return minimo + random;
 }
 const poolPalabras = ['PALABRAS', 'PARA', 'PRUEBA', 'JUEGO', 'COLGADO', 'PARA', 'ELEGIR', 'USUARIO', 'PENDIENTE', 'VERSION', 'FINAL'];
-// total de palabras aún no definido
 
-//INICIO INTERACCION
 saludaUsuario();
-alert('Estas son las bases de un juego de palabras que programaré');
+alert('Lo primero es que elijas tu personaje, tengo 3 disponibles');
 
-let eligePersonaje = parseInt(prompt('Habrá personajes para elegir, elige entre personajes 1, 2 o 3'));
+let eligePersonaje = parseInt(prompt('Por favor, indìcame cuál prefieres: 1, 2 ó 3'));
 switch (eligePersonaje) {
     case 1:
         alert(`Excelente, elegiste el personaje 1: ${Object.values(perso1)}`);
@@ -45,44 +43,72 @@ switch (eligePersonaje) {
         alert('no elegiste una opción válida');
 
 }
-alert('A modo de demostración generaré un número al azar entre 0-10 , después lo usaremos para elegir tu palabra desde un pool');
 let numeroAleatorio = indexRandom(0, 10);
-alert(`El número aleatorio generado para tí es ${numeroAleatorio}`);
-
 let palabra = poolPalabras[numeroAleatorio];
-alert(`Con ese número tu palabra aleatoria corresponde a ${palabra}`);
 
 //transformamos el string en un array donde podremos buscar (spread operator)
 const letras = [...palabra];
 
-let letraIngresada = prompt('Ahora ingresa una letra y te contaré cuántas veces y en qué posición está ubicada dentro de tu palabra');
-let letraMayus = letraIngresada.toUpperCase();
-let ubicaciones = [];
+// creamos el array a llenar en el proceso de juego con tantos "_" como número de letras
 
-if (isNaN(letraMayus)) {  //si no es un número, busca en cada index y agrega su posición a otro array 
-    let indice = 0;
-    while (indice < letras.length + 1) {
-        if (letras[indice] == letraMayus) {
-            ubicaciones.push(indice);
-            indice++;
+const llenandoPalabra = [];
+for (let i = 0; i < letras.length; i++) {
+    llenandoPalabra.push(' __ ');
+}
+alert(letras);
+alert(`Ya tengo tu palabra secreta ${llenandoPalabra}, veamos si la puedes adivinar`);
+let palabraCompleta = llenandoPalabra.indexOf(' __ ');
+let vidas = 3;
+
+while (vidas != 0) {
+  
+    letraIngresada = prompt('Ahora ingresa una letra');
+    let letraMayus = letraIngresada.toUpperCase();
+    let contadorAcierto = [];
+    
+    if (isNaN(letraMayus)) {  //si no es un número, busca en cada index y agrega su posición a otro array 
+
+        let indice = 0;
+        while (indice < letras.length + 1) {
+            if (letras[indice] == letraMayus) {
+                contadorAcierto.push(indice);
+                llenandoPalabra[indice] = letraMayus;
+                indice++;
+
+            }
+            else {
+                indice++;
+
+            }
         }
-        else {
-            indice++;
+            if (contadorAcierto.length == 0) {
+            vidas--
+            alert(`la letra ${letraMayus} no se encuentra en tu palabra`);
+                    if(vidas == 0) {
+                    alert('Se te acabaron las vidas, lo siento')  
+                    }
+                    else{
+                    alert(`Te quedan ${vidas} intentos más`)
+                    }
+            } else {
+                     alert(`Tu palabra: ${llenandoPalabra}`);
+            }    
+            
+            if ((llenandoPalabra.indexOf(' __ ') != -1) && (vidas != 0)){
+                alert('vamos por otra letra');
+            } else {
+                        if(vidas != 0) {
+                        alert('GANASTE, tu palabra está completa!!!!!')
+                        indice = 50;
+                        vidas=0}
+
         }
     }
-    let numeroDeVeces = ubicaciones.length;  // ahora sabremos cuántas veces está la letra y luego en qué posiciones.
 
-    let posicionesParaUsuario = ubicaciones.map(function (suma) { return suma + 1 }); 
-    //+1 a cada elemento para evitar el cero, el usuario vea posiciones que conoce
-
-    if (numeroDeVeces == 0) {
-        alert(`la letra ${letraMayus} no se encuentra en tu palabra`);
-    } else {
-
-        alert(`la letra ${letraMayus} se encuentra ${numeroDeVeces} vez(ces) y en posición(es) ${posicionesParaUsuario} de izquierda a derecha`);
+    else {
+        alert('el valor que ingresaste es un número, no una letra');
     }
+let palabraCompleta = llenandoPalabra.indexOf(' __ ');
 }
-else {
-    alert('el valor que ingresaste es un número, no una letra');
-}
-alert('Gracias por tu visita, hasta la próxima');
+
+alert('Gracias por jugar, hasta la próxima');
