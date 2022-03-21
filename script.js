@@ -9,13 +9,13 @@ class Personaje {
         this.ocupacion = ocupacion;
     }
 }
-const perso1 = new Personaje('Carlos', ' 20 años ', ' Jugador Empedernido');
-const perso2 = new Personaje('Facundo', ' 15 años ', ' Estudiante de Programación');
-const perso3 = new Personaje('Claudia ', ' 29 años ', ' Profesora');
+const perso1 = new Personaje('Homero ', ' 39 años ', ' Técnico Nuclear');
+const perso2 = new Personaje('Bart ', ' 10 años ', ' Niño Incomprendido');
+const perso3 = new Personaje('Lisa ', ' 8 años ', ' Niña Genio');
 const poolPersonajes = [perso1, perso2, perso3];
 
 function saludaUsuario() {
-    alert('Hola Bienvenido al Juego del Colgado, Ahorcado o HangMan')
+    alert('Hola Bienvenido al Juego del Ahorcado o HangMan')
 }
 function indexRandom(minimo, maximo) {   //número al azar para extraer palabra desde array base 
     var numerosPosibles = maximo - minimo;
@@ -31,16 +31,16 @@ alert('Lo primero es que elijas tu personaje, tengo 3 disponibles');
 let eligePersonaje = parseInt(prompt('Por favor, indìcame cuál prefieres: 1, 2 ó 3'));
 switch (eligePersonaje) {
     case 1:
-        alert(`Excelente, elegiste el personaje 1: ${Object.values(perso1)}`);
+        alert(`Muy bien, elegiste a: ${Object.values(perso1)}`);
         break;
     case 2:
-        alert(`Excelente, elegiste el personaje 2: ${Object.values(perso2)}`);
+        alert(`Excelente, elegiste a: ${Object.values(perso2)}`);
         break;
     case 3:
-        alert(`Excelente, elegiste el personaje 3: ${Object.values(perso3)}`);
+        alert(`Bien hecho, elegiste a: ${Object.values(perso3)}`);
         break;
     default:
-        alert('no elegiste una opción válida');
+        alert('No elegiste personaje, te asignaré uno de todos modos.');
 
 }
 let numeroAleatorio = indexRandom(0, 10);
@@ -55,14 +55,15 @@ const llenandoPalabra = [];
 for (let i = 0; i < letras.length; i++) {
     llenandoPalabra.push(' __ ');
 }
-alert(letras);
+console.log(letras);
+
 alert(`Ya tengo tu palabra secreta ${llenandoPalabra}, veamos si la puedes adivinar`);
 let palabraCompleta = llenandoPalabra.indexOf(' __ ');
 let vidas = 3;
 
 while (vidas != 0) {
   
-    letraIngresada = prompt('Ahora ingresa una letra');
+    letraIngresada = prompt('Vamos, ingresa una letra');
     let letraMayus = letraIngresada.toUpperCase();
     let contadorAcierto = [];
     
@@ -95,7 +96,7 @@ while (vidas != 0) {
             }    
             
             if ((llenandoPalabra.indexOf(' __ ') != -1) && (vidas != 0)){
-                alert('vamos por otra letra');
+                // alert('vamos por otra letra');
             } else {
                         if(vidas != 0) {
                         alert('GANASTE, tu palabra está completa!!!!!')
