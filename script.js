@@ -15,9 +15,9 @@ const perso3 = new Personaje('Lisa ', ' 8 años ', ' Niña Genio');
 const poolPersonajes = [perso1, perso2, perso3];
 
 function saludaUsuario() {
-    alert('Hola Bienvenido al Juego del Ahorcado o HangMan')
+    alert('Hola Bienvenido al Juego del Ahorcado')
 }
-function indexRandom(minimo, maximo) {   //número al azar para extraer palabra desde array base 
+function indexRandom(minimo, maximo) {   //número al azar para extraer palabra desde array 
     var numerosPosibles = maximo - minimo;
     var random = Math.random() * (numerosPosibles + 1);
     random = Math.floor(random);  // transformación a numero entero
@@ -46,10 +46,10 @@ switch (eligePersonaje) {
 let numeroAleatorio = indexRandom(0, 10);
 let palabra = poolPalabras[numeroAleatorio];
 
-//transformamos el string en un array donde podremos buscar (spread operator)
+//transformamos el string en un array
 const letras = [...palabra];
 
-// creamos el array a llenar en el proceso de juego con tantos "_" como número de letras
+// creamos un array similar que contiene "__" en similar numero para llenar luego
 
 const llenandoPalabra = [];
 for (let i = 0; i < letras.length; i++) {
@@ -59,14 +59,14 @@ console.log(letras);
 
 alert(`Ya tengo tu palabra secreta ${llenandoPalabra}, veamos si la puedes adivinar`);
 let palabraCompleta = llenandoPalabra.indexOf(' __ ');
-let vidas = 3;
+let vidas = 7;
 
 while (vidas != 0) {
-  
+
     letraIngresada = prompt('Vamos, ingresa una letra');
     let letraMayus = letraIngresada.toUpperCase();
     let contadorAcierto = [];
-    
+
     if (isNaN(letraMayus)) {  //si no es un número, busca en cada index y agrega su posición a otro array 
 
         let indice = 0;
@@ -82,26 +82,27 @@ while (vidas != 0) {
 
             }
         }
-            if (contadorAcierto.length == 0) {
+        if (contadorAcierto.length == 0) {
             vidas--
             alert(`la letra ${letraMayus} no se encuentra en tu palabra`);
-                    if(vidas == 0) {
-                    alert('Se te acabaron las vidas, lo siento')  
-                    }
-                    else{
-                    alert(`Te quedan ${vidas} intentos más`)
-                    }
-            } else {
-                     alert(`Tu palabra: ${llenandoPalabra}`);
-            }    
-            
-            if ((llenandoPalabra.indexOf(' __ ') != -1) && (vidas != 0)){
-                // alert('vamos por otra letra');
-            } else {
-                        if(vidas != 0) {
-                        alert('GANASTE, tu palabra está completa!!!!!')
-                        indice = 50;
-                        vidas=0}
+            if (vidas == 0) {
+                alert(`Se te acabaron las vidas, lo siento, tu palabra era ${palabra}`)
+            }
+            else {
+                alert(`Te quedan ${vidas} intentos más`)
+            }
+        } else {
+            alert(`Tu palabra: ${llenandoPalabra}`);
+        }
+
+        if ((llenandoPalabra.indexOf(' __ ') != -1) && (vidas != 0)) {
+
+        } else {
+            if (vidas != 0) {
+                alert(`GANASTE, tu palabra ${palabra} está completa!!!`)
+                indice = 50; // termino de ciclo alertas/prompt
+                vidas = 0 // termino de ciclo alertas/prompt
+            }
 
         }
     }
@@ -109,7 +110,7 @@ while (vidas != 0) {
     else {
         alert('el valor que ingresaste es un número, no una letra');
     }
-let palabraCompleta = llenandoPalabra.indexOf(' __ ');
+    let palabraCompleta = llenandoPalabra.indexOf(' __ ');
 }
 
 alert('Gracias por jugar, hasta la próxima');

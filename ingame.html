@@ -4,14 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>El Ahorcado</title>
+    <title>Juego del Ahorcado</title>
 
-    <link rel="stylesheet" href="./css/estilos.css">
+    <link rel="stylesheet" href="css/estilos.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Hurricane&family=Poppins:ital,wght@0,400;1,100&display=swap"
         rel="stylesheet">
+
+
 </head>
 
 <body>
@@ -20,30 +22,30 @@
 
         <div class="contenedor">
 
-                <div class="personajeActivo">
-                    <img id="jugando" src="imagenes/interroga.jpeg" alt="Personaje_en_Juego">
-                </div>
+            <div class="indicadorVidas">
+                <p>Indicador de vidas/intentos disponibles</p>
+            </div>
+            <div class="personajeActivo">
+                <!-- imagen imteractiva depende del avance el juego -->
+                <img id="jugando" src="imagenes/imagenPrueba.jpeg" alt="Personaje_en_Juego">
+            </div>
         </div>
-               
+        <div class="palabraActual">
+            <h2>palabra secreta</h2>
+        </div>
         <div class="bloqueInferior">
 
-                        <div class="palabraActual">
-                            <h2>adivina</h2>
-                        </div>
+            <div class="teclado">
+                <p>Acá debe ir sistema de ingreso letras</p>
+                <!-- Ingreso caracteres en juego -->
+            </div>
 
-                        <div class="teclado">
-
-                        </div>
-
-                        <div class="inicadorVidas">
-
-                        </div>
         </div>
     </main>
 
     <footer>Derechos Reservados</footer>
-    <!-- 
-      <script src="script.js"></script> -->
+
+
 </body>
 
 </html>
