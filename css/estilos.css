@@ -10,7 +10,7 @@ body {
   height: 48rem;
   margin: 2.5rem;
   padding: 2rem;
-  background-image: url("/fondos/nubesSimpsons.jpg");
+  background-color: lightskyblue;
   font-weight: bolder;
 }
 
