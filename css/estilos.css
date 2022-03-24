@@ -31,9 +31,11 @@ body {
   padding-bottom: 4rem;
   font-family: "Hurricane", cursive;
 }
+
 h2 {
   font-size: 2rem;
 }
+
 .start {
   display: flex;
   justify-content: center;
@@ -55,11 +57,13 @@ h2 {
     2px -2px 1px #ffd90f;
   padding-bottom: 3rem;
 }
+
 .contenedorPersonajes {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
 }
+
 .card {
   width: 20rem;
   background-color: rgb(160, 138, 138);
@@ -70,7 +74,7 @@ h2 {
   height: 23rem;
   width: 20rem;
   text-align: center;
- 
+
 
 }
 
@@ -87,6 +91,7 @@ h2 {
 .eligeHomero {
   font-size: 1.5rem;
 }
+
 .eligeBart {
   font-size: 1.5rem;
 }
@@ -120,6 +125,7 @@ h2 {
   height: 100%;
   border-radius: 50%;
 }
+
 .bloqueInferior {
   display: flex;
   position: relative;
@@ -130,22 +136,24 @@ h2 {
   background-color: lightgrey;
   border: solid 3px;
 }
+
 .palabraActual {
   height: 8rem;
 }
+
 .teclado {
   padding-bottom: 2rem;
   font-size: 2rem;
 }
+
 .indicadorVidas {
   font-size: 2rem;
   padding-bottom: 1rem;
 }
 
-#desafioDOM{
+#desafioDOM {
   margin-top: 2rem;
-  width:300px;
+  width: 300px;
   font-size: 1.5rem;
-  border: yellow solid 2px;
+  background-color: yellow;
 }
-
