@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Juego del Colgado</title>
 
-    <link rel="stylesheet" href="css/estilos.css">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Hurricane&family=Poppins:ital,wght@0,400;1,100&display=swap"
         rel="stylesheet">
+
+    <link rel="stylesheet" href="css/estilos.css">
 
 </head>
 
@@ -24,63 +24,71 @@
         <div class="contenedorPersonajes">
 
             <div class="seleccionPersonajes">
-                <div class="card" style="width: 18rem;">
-                    <img src="imagenes/personajeHomero.jpeg" class="card-img-top" alt="Homero Simpson">
+                <div class="card">
+                    <img src="imagenes/personajeHomero.jpeg" class="card-img-top" id="homero" alt="Homero Simpson">
                     <div class="card-body">
                         <h5 class="card-title">Homero Simpson</h5>
                         <p class="card-text">Homero, es padre de familia y técnico nuclear. No muy hábil con las
-                            palabras y algo torpe, pero muy divertido.</p>
-                        <a href="#" class="eligeme">Elige a Homero</a>
+                            palabras, pero muy divertido.</p>
+
                     </div>
                 </div>
             </div>
 
             <div class="seleccionPersonajes">
-                <div class="card" style="width: 18rem;">
-                    <img src="imagenes/personajeBart.jpg" class="card-img-top" alt="Bart Simpson">
+                <div class="card" id="probando">
+                    <img src="imagenes/personajeBart.jpg" class="card-img-top" id="bart" alt="Bart Simpson">
                     <div class="card-body">
                         <h5 class="card-title">Bart Simpson</h5>
                         <p class="card-text">Bart es astuto y travieso, tal vez no sea muy bueno con las palabras, pero
                             encontrará la manera de ganar.</p>
-                        <a href="#" class="eligeme">Elige a Bart</a>
+
+
                     </div>
+
                 </div>
+<!-- entregable de la semana modificando el DOM -->
+
+<div id='desafioDOM'>
+<p>"MouseOver" - "MouseLeave" - </p>
+<p> - "Click" en Personaje Bart </p>
+</div>
+<!-- entregable de la semana modificando el DOM -->
 
             </div>
             <div class="seleccionPersonajes">
-                <div class="card" style="width: 18rem;">
-                    <img src="imagenes/personajeLisa.jpeg" class="card-img-top" alt="Lisa Simpson">
+                <div class="card">
+                    <img src="imagenes/personajeLisa.jpeg" class="card-img-top" id="lisa" alt="Lisa Simpson">
                     <div class="card-body">
                         <h5 class="card-title">Lisa Simpson</h5>
                         <p class="card-text">Lisa es la menor de la familia , una niña inteligente y estudiosa, sin duda
                             la más inteligente de su clase.</p>
-                        <a href="#" class="eligeme">Elije a Lisa</a>
+
                     </div>
                 </div>
             </div>
 
-        </div>
+            <div class="seleccionPersonajes">
+                <div class="cardSeleccion">
+                    <img id="seleccion" src="imagenes/hombreX.jpg" class="card-img-top" alt="Lisa Simpson">
+                    <div class="card-body">
+                        <h5 class="card-title" id="nombreSeleccionado">Selecciona tu personaje</h5>
+                        <p class="card-text" id="textoSeleccionado"> Elige quién quieres que te acompañe durante el juego</p>
 
+                    </div>
+                </div>
+            </div>
+           <a href="./personajes.html"> <button id="botonInicio"> RESET</button>
+            </a> 
+        </div>
+ 
 
 
     </header>
 
-    <div class="imagenCentral"></div>
-    <img src="" alt="">
+    <footer> </footer>
 
-    <div class="palabraAdivinar"></div>
-
-    <SPAN>
-        <div class="teclado"></div>
-
-    </SPAN>
-    <section>
-        <p>xxx</p>
-
-    </section>
-
-    <footer> Derechos Reservados</footer>
-
+    <script src="./dom.js"> </script>
 
 </body>
 
