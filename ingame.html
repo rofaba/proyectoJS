@@ -22,29 +22,45 @@
 
         <div class="contenedor">
 
-            <div class="indicadorVidas">
-                <p>Indicador de vidas/intentos disponibles</p>
+            <div id="indicadorVidas">
+                <p> Intentos disponibles</p>
+                <h1 id="numeroVidas"> 7 </h1>
             </div>
+        
             <div class="personajeActivo">
                 <!-- imagen imteractiva depende del avance el juego -->
-                <img id="jugando" src="imagenes/imagenPrueba.jpeg" alt="Personaje_en_Juego">
+                <img id="jugando" src="imagenes/homer_blanco_negro.webp" alt="Personaje_en_Juego">
             </div>
         </div>
-        <div class="palabraActual">
-            <h2>palabra secreta</h2>
-        </div>
-        <div class="bloqueInferior">
 
-            <div class="teclado">
-                <p>Acá debe ir sistema de ingreso letras</p>
+        <div>
+            <h2 id="palabraAdivina"> ________  </h2>
+        </div>
+        
+        <div class="teclado">
+               <p id="probando"> Ingresa una letra</p> 
+               <input type="text" maxlength="1" id="letraUsuario" name="letraUsuario">
                 <!-- Ingreso caracteres en juego -->
-            </div>
+            <button id="botonInicio"> Buscar </button>   
 
+        </div>
+        <div class="mensajesJuego">
+            
+            <h3 id="mensajeUsuario"> Comienza el Juego</h3>
+            <h3 id="segundoMensaje"> Ingresa una letra</h3>
+        
+        </div>    
         </div>
     </main>
 
     <footer>Derechos Reservados</footer>
+    <a href="./index.html"> Ir a inicio</a> <br>
+    <a href="./personajes.html"> Ir a personajes</a> <br>
+    <a href="./ingame.html"> Ir a ingame</a>
 
+<script src="./script.js"></script>
+
+<!-- <script src="./dom.js"> </script> -->
 
 </body>
 

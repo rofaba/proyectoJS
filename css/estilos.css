@@ -100,8 +100,6 @@ h2 {
   font-size: 1.5rem;
 }
 
-
-
 .seleccionPersonajes img {
   width: 252px;
   height: 312px;
@@ -116,8 +114,8 @@ h2 {
 }
 
 .personajeActivo {
-  width: 30rem;
-  height: 30rem;
+  width: 15rem;
+  height: 15rem;
 }
 
 #jugando {
@@ -125,13 +123,24 @@ h2 {
   height: 100%;
   border-radius: 50%;
 }
+.arrayPalabraSecreta {
+  width: 100%;
+  height: 5rem;
+  background-color: rgb(70, 66, 66);
+}
+
+.arrayPalabraSecreta{
+height: ;
+
+}
+
 
 .bloqueInferior {
   display: flex;
   position: relative;
   margin: 0, auto;
   width: 100%;
-  height: 10rem;
+  height: 7rem;
   justify-content: center;
   background-color: lightgrey;
   border: solid 3px;
@@ -139,11 +148,6 @@ h2 {
 
 .palabraActual {
   height: 8rem;
-}
-
-.teclado {
-  padding-bottom: 2rem;
-  font-size: 2rem;
 }
 
 .indicadorVidas {
@@ -157,3 +161,48 @@ h2 {
   font-size: 1.5rem;
   background-color: yellow;
 }
+.teclado {
+  background-color: grey;
+  height:   10rem;
+  font-size: 3rem;
+  display: flex;
+  justify-items: space-evenly;
+  padding-top: 2rem;
+  justify-content: center;
+}
+#letraUsuario{
+  margin-left: 2rem;
+  text-transform: uppercase;
+}
+
+.iniciarJuego{
+  height: 4rem;
+  width: 10rem;
+  font-weight: bolder;
+  font-size: 2rem;
+  margin-left: 2rem;
+}
+
+#letraUsuario{
+  font-size: 3rem;
+  width: 4rem;
+  height: 4rem;
+}
+.mensajesJuego{
+  height: 3rem;
+  font-size: 2rem;
+  display:block;
+  text-align: center;
+}
+#botonInicio{
+  width: 8rem;
+  height: 4rem;
+  margin-left: 3rem; 
+}
+
+#palabraAdivina{
+text-transform: uppercase;
+}
+#probando{
+  text-transform: uppercase;
+  }

@@ -1,119 +1,111 @@
-//Simulador interactivo JS: Juego de "El Colgado".
 
-//creación de personajes
-class Personaje {
-    constructor(nombre, edad, ocupacion) {
-        this.nombre = nombre;
-        this.edad = edad;
-        this.ocupacion = ocupacion;
+/* Se tiene poolPalabras como Array base del juego, con la función indexRandom obtenemos un número entero al azar y con el mismo se selecciona una de las palabras del array base, con esa palabra se juega */
+
+const poolPalabras = ['palabras', 'para', 'prueba', 'juego', 'colgado'];
+
+function indexRandom(minimo, maximo) {
+    var numerosPosibles = maximo - minimo;
+    var random = Math.random() * (numerosPosibles + 1);
+    random = Math.floor(random);  // transformación a numero entero
+    return minimo + random;
+}
+
+let numeroAleatorio = indexRandom(0, 5);
+let palabraSeleccionada = poolPalabras[numeroAleatorio];
+const letrasArray = [...palabraSeleccionada]; //transformamos el string en un array
+
+/* creamos un array con igual número de letras que la palabra seleccionada, lleno de guiones para completar. Lo mostramos al usuario en H2 palabraAdivina */
+
+let completandoPalabra = []; 
+       for (let i = 0; i < letrasArray.length; i++) {
+        completandoPalabra.push(' _ ');
+    }
+
+let palabraGuiones = document.getElementById('palabraAdivina');
+palabraGuiones.innerHTML = completandoPalabra;  
+
+//XXX
+let probando = document.getElementById('probando');
+probando.innerHTML = letrasArray;
+//XXX
+
+//Variables globales
+let vidasPendientes;
+let contadorAciertos = 0;
+
+//EMPEZANDO JUEGO
+const jugar = document.getElementById('botonInicio');
+jugar.addEventListener('click', jugando);
+let vidasRestantes = 7;
+
+function jugando(){
+let letraIngresada = document.getElementById('letraUsuario');
+let letra = letraIngresada.value;
+let i=0;
+let laLetraNoEsta = true;
+
+//verifica si la letra existe en palabra
+       
+for (let i = 0; i < letrasArray.length; i++) {
+    if (letrasArray[i] == letraIngresada.value) {
+        completandoPalabra[i] = letraIngresada.value;
+        laLetraNoEsta = false;
+        document.getElementById('palabraAdivina').innerHTML = completandoPalabra;
+        if((completandoPalabra.includes(' _ ')) != true){
+            alert('GANASTE, tu palabra está completa')
+        }
+    } 
+}
+if (laLetraNoEsta) {
+    vidasRestantes--;
+    document.getElementById('numeroVidas').innerHTML = vidasRestantes;
+    }
+    if (vidasRestantes == 0) {
+       alert('tus intentos se acabaron, PERDISTE'); 
     }
 }
-const perso1 = new Personaje('Homero ', ' 39 años ', ' Técnico Nuclear');
-const perso2 = new Personaje('Bart ', ' 10 años ', ' Niño Incomprendido');
-const perso3 = new Personaje('Lisa ', ' 8 años ', ' Niña Genio');
-const poolPersonajes = [perso1, perso2, perso3];
-
-    function saludaUsuario() {
-        alert('Hola Bienvenido al Juego del Ahorcado')
-    }
-    function indexRandom(minimo, maximo) {   //número al azar para extraer palabra desde array 
-        var numerosPosibles = maximo - minimo;
-        var random = Math.random() * (numerosPosibles + 1);
-        random = Math.floor(random);  // transformación a numero entero
-        return minimo + random;
-    }
-    const poolPalabras = ['PALABRAS', 'PARA', 'PRUEBA', 'JUEGO', 'COLGADO', 'PARA', 'ELEGIR', 'USUARIO', 'PENDIENTE', 'VERSION', 'FINAL'];
-
-    saludaUsuario();
-    alert('Lo primero es que elijas tu personaje, tengo 3 disponibles');
-
-    let eligePersonaje = parseInt(prompt('Por favor, indìcame cuál prefieres: 1, 2 ó 3'));
-    switch (eligePersonaje) {
-        case 1:
-            alert(`Muy bien, elegiste a: ${Object.values(perso1)}`);
-            break;
-        case 2:
-            alert(`Excelente, elegiste a: ${Object.values(perso2)}`);
-            break;
-        case 3:
-            alert(`Bien hecho, elegiste a: ${Object.values(perso3)}`);
-            break;
-        default:
-            alert('No elegiste personaje, te asignaré uno de todos modos.');
-
-    }
-    let numeroAleatorio = indexRandom(0, 10);
-    let palabra = poolPalabras[numeroAleatorio];
-
-    //transformamos el string en un array
-    const letras = [...palabra];
-
-    // creamos un array similar que contiene "__" en similar numero para llenar luego
-
-    const llenandoPalabra = [];
-    for (let i = 0; i < letras.length; i++) {
-        llenandoPalabra.push(' __ ');
-    }
-    console.log(letras);
 
 
 
-    alert(`Ya tengo tu palabra secreta ${llenandoPalabra}, veamos si la puedes adivinar`);
-    let palabraCompleta = llenandoPalabra.indexOf(' __ ');
-    let vidas = 7;
 
-    while (vidas != 0) {
+// if (contadorAciertos == 0){
+//     let mensaje = document.getElementById('mensajeUsuario')
+//     let mensajeDos = document.getElementById('segundoMensaje');
+            
+//     mensaje.innerHTML = `la letra no se encuentra en tu palabra`;
+//     mensajeDos = innerHTML = 'Ingresa otra letra';        
+//     intentosPendientes--;
+//     
+// }
+      
+// let palabraSecreta = document.getElementById('palabraAdivina');
+// palabraSecreta.innerHTML = llenandoPalabra;  
 
-        letraIngresada = prompt('Vamos, ingresa una letra');
-        let letraMayus = letraIngresada.toUpperCase();
-        let contadorAcierto = [];
 
-        if (isNaN(letraMayus)) {  //si no es un número, busca en cada index y agrega su posición a otro array 
+// //revisa aciertos vs vidas
+//     if (contadorAciertos == 0) {  // la letra no está en la palabra
+//             vidas--
+//             let mensaje = document.getElementById('mensajeUsuario')
+//             let mensajeDos = document.getElementById('segundoMensaje');
+//             let loose = document.getElementById('numeroVidas');
+//             mensaje.innerHTML = `la letra ${letraIngresada} no se encuentra en tu palabra`;
+//             mensajeDos = innerHTML = 'Ingresa otra letra';
+//             loose.innerHTML = vidas - 1;
+//         }
+//         else {
+//             palabraSecreta.innerHTML = llenandoPalabra;
+//         }
 
-            let indice = 0;
-            while (indice < letras.length + 1) {
-                if (letras[indice] == letraMayus) {
-                    contadorAcierto.push(indice); //guarda cada index de las coincidencias
-                    llenandoPalabra[indice] = letraMayus; //acá reemplaza la letra
-                    indice++;
 
-                }
-                else {
-                    indice++;
+// //Informa avance del juego 
 
-                }
-            }
-            if (contadorAcierto.length == 0) {  // si aciertos son cero la letra no está en palabra
-                vidas--
-                alert(`la letra ${letraMayus} no se encuentra en tu palabra`);
-                if (vidas == 0) { //revisa si quedan vidas para jugar
-                    alert(`Se te acabaron las vidas, lo siento, tu palabra era ${palabra}`)
-                }
-                else {
-                    alert(`Te quedan ${vidas} intentos más`)
-                }
-            } else {
-                alert(`Tu palabra: ${llenandoPalabra}`);
-            }
+//         if (vidas == 0) { //el juego terminò por vidas en cero
+//             mensaje.innerHTML = 'No te quedan más vidas';
+//             mensajeDos.innerHTML = `Fin del juego, tú palabra era ${palabra}`
+//         }
+//         else { //el juego terminó por palabra completa
 
-            if ((llenandoPalabra.indexOf(' __ ') != -1) && (vidas != 0)) {
-
-            } else {
-                if (vidas != 0) {
-                    alert(`GANASTE, tu palabra ${palabra} está completa!!!`)
-                    indice = 50; // termino de ciclo alertas/prompt
-                    vidas = 0 // termino de ciclo alertas/prompt
-                }
-
-            }
-        }
-
-        else {
-            alert('el valor que ingresaste es un número, no una letra');
-        }
-        let palabraCompleta = llenandoPalabra.indexOf(' __ ');
-    }
-
-    alert('Gracias por jugar, hasta la próxima');
-
-    
+//             let cierre = document.getElementById('segundoMensaje');
+//             cierre.innerHTML = `GANASTE, tu palabra ${palabra} está completa!!!`;
+//             indice = 50; // termino de ciclo 
+//             vidas = 0; // termino de ciclo
