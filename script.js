@@ -23,7 +23,7 @@ for (let i = 0; i < letrasArray.length; i++) {
 
 document.getElementById('palabraAdivina').innerHTML = completandoPalabra.join('');  //sacamos las comas
 
-//me muestro la palabra secreta para las pruebas del código
+// muestro la palabra secreta temporlmente para facilitar las pruebas del código
 let probando = document.getElementById('probando');
 probando.innerHTML = letrasArray;
 
