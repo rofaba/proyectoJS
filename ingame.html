@@ -19,76 +19,85 @@
 <body>
     <header>
 
-    <div class="contenedorSuperior">
-        <div id="indicadorVidas">
+        <div class="contenedorSuperior">
+            <div id="indicadorVidas">
                 <p> Intentos disponibles</p>
                 <h1 id="numeroVidas"> 7 </h1>
             </div>
-            
+
+            <div class="personajeEnJuego">
+
+                <h3 id="personajeSeleccionado"> personaje </h3>
+            </div>
+
             <div id="records">
                 <p> Puntaje</p>
                 <h1 id="puntajeActual"> 000 </h1>
                 <p> Puntaje Máximo Anterior</p>
                 <h1 id="puntajeMaximo"> 100 </h1>
             </div>
-    </div>
+        </div>
 
     </header>
-        
+
     <main>
 
-      
-        <div class="contenedor">
+        <div class="contenedorBase">
 
-            
 
-            <div class="personajeActivo">
-                <!-- imagen imteractiva depende del avance el juego -->
-                <img id="jugando" src="imagenes/homer_blanco_negro.webp" alt="Personaje_en_Juego">
+            <div class="contenedor">
+                <div class="personajeActivo">
+                    <!-- imagen imteractiva depende del avance el juego -->
+                    <img id="jugando" src="imagenes/homer_blanco_negro.webp" alt="Personaje_en_Juego">
+                </div>
+
+
+                <div class="bloqueBusqueda">
+                    <h4 id="palabraAdivina"> ________ </h4>
+                        
+                            <div class=controles>
+
+                                <div class="ingresarDatos">
+                                    <input type="text" maxlength="1" id="letraUsuario" name="letraUsuario">
+                                    
+                                    
+                                    <button id="botonInicio"> Buscar </button>
+                                    
+                                </div>
+
+                            </div>    
+                                    <div id="probando">
+                                        <p> Ingresa una letra </p>
+                                    </div>
+
             </div>
         </div>
 
-        <div class="muestraPalabra">
-            <h2 id="palabraAdivina"> ________ </h2>
-        </div>
+                <div class="mensajesJuego">
 
-        <div class="teclado">
-            <p id="probando"> Ingresa una letra</p>
-            <input type="text" maxlength="1" id="letraUsuario" name="letraUsuario">
-            <!-- Ingreso caracteres en juego -->
-            <button id="botonInicio"> Buscar </button>
+                    <h3 id="mensajeUsuario"> Comienza el Juego</h3>
+                    <h3 id="segundoMensaje"> Ingresa una letra</h3>
 
-            <a href="./ingame.html"> <button id="botonInicio"> RESET</button>
+                </div>
+            </div>
 
         </div>
-        <div class="mensajesJuego">
 
-            <h3 id="mensajeUsuario"> Comienza el Juego</h3>
-            <h3 id="segundoMensaje"> Ingresa una letra</h3>
+        <nav>
 
-        </div>
-        </div>
+            <div class='navegacion'>
 
-        <nav> 
-
-            <div class = 'navegacion'>
-            
-            <nav class="barraNav">
-                <a href="/index.html" class = "eleccion"> || Inicio ||</a>
-                <a href="./personajes.html" class = "eleccion" > || Eleccion personaje ||</a>
-                <a href="./ingame.html" class = "eleccion" > || Iniciar Juego ||</a>
-            </nav>
-        </div>  
-        <div class="barraNavPersonajes"></div>
-            <a href="index.html"> Inicio</a>
-            <a href="./personajes.html"> Eleccion personaje</a>
-            <a href="./ingame.html"> Iniciar Juego</a>
+                <nav class="barraNav">
+                    <a href="/index.html" class="eleccion"> || Inicio ||</a>
+                    <a href="./ingame.html" class="eleccion"> || Jugar ||</a>
+                </nav>
+            </div>
         </nav>
-    
+
     </main>
 
     <footer>Derechos Reservados</footer>
-    
+
 
     <script src="./script.js"></script>
 

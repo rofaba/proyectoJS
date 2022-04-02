@@ -1,5 +1,10 @@
+//JUGANDO
 
 /* Cree [poolPalabras] como Array base del juego, con la función (indexRandom) obtengo un número entero al azar y con ese número selecciono la palabras para jugar desde el array base */
+let caracter;
+let personaje;
+   
+document.getElementById('personajeSeleccionado').innerHTML = localStorage.getItem("personaje");
 
 const poolPalabras = ['palabras', 'para', 'prueba', 'juego', 'colgado', 'ultima'];
 
@@ -22,6 +27,8 @@ for (let i = 0; i < letrasArray.length; i++) {
 }
 
 document.getElementById('palabraAdivina').innerHTML = completandoPalabra.join('');  //sacamos las comas
+
+
 
 // muestro la palabra secreta temporalmente para facilitar las pruebas del código
 let probando = document.getElementById('probando');

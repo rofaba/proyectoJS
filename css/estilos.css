@@ -136,19 +136,65 @@ h2 {
   display: flex;
   justify-content : space-evenly;
 
+}
 
+#personajeSeleccionado{
+  font-size: 3rem;
+}
 
+.contenedorBase {
+  display:block;
 }
 .contenedor {
-  display: block;
-  padding-left: 50rem;
+  height: 30rem;
+  display: flex;
+  justify-content: space-around;
+  padding-left: 5rem;
 }
 
+.bloqueBusqueda{
+  display: block;
+
+}
+
+.controles{
+
+  display:flex;
+
+}
 .personajeActivo {
   display: flex;
   justify-items: center;
-  width: 23rem;
-  height: 23rem;
+  width: 30rem;
+  height: 30rem;
+} 
+.personajeActivo .img {
+
+  height: 100%;
+}
+.bloqueBusqueda {
+width: 40rem;
+height: 30rem;
+justify-content: center;
+align-items: center;
+
+}
+#palabraAdivina{
+  height: 10rem;
+  text-align: center;
+  align-items: center;
+}
+.controles{
+  justify-content: space-around ;
+  align-items: center;
+  
+}
+.ingresarDatos{
+  width: 30rem;
+  height: 10rem;
+  justify-items: center;
+  align-content: center;
+  padding-top: 5rem;
 }
 
 #jugando {
@@ -186,6 +232,7 @@ h2 {
 
 #indicadorVidas {
   display: block;
+text-align: center;
   padding-left: 4rem;
   padding-top: 2rem;
   font-size: 1.5rem;
@@ -222,9 +269,10 @@ h2 {
 }
 
 #letraUsuario {
-  font-size: 3rem;
-  width: 4rem;
-  height: 4rem;
+  font-size: 4rem;
+  width: 5rem;
+  height: 5rem;
+  
 }
 
 .mensajesJuego {
@@ -237,14 +285,20 @@ h2 {
 #botonInicio {
   width: 8rem;
   height: 4rem;
-  margin-left: 3rem;
 }
 
 #palabraAdivina {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   text-justify: center;
   text-transform: uppercase;
+  font-size: 4rem;
+  align-items: baseline;
+  
 }
 #probando {
   text-transform: uppercase;
+  height: 8rem;
+  align-items: center;
+  text-align: center;
+  font-size: 3rem;
 }
