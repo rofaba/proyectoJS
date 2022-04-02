@@ -1,7 +1,7 @@
 
 /* Cree [poolPalabras] como Array base del juego, con la función (indexRandom) obtengo un número entero al azar y con ese número selecciono la palabras para jugar desde el array base */
 
-const poolPalabras = ['palabras', 'para', 'prueba', 'juego', 'colgado'];
+const poolPalabras = ['palabras', 'para', 'prueba', 'juego', 'colgado', 'ultima'];
 
 function indexRandom(minimo, maximo) {    //fx reutilizable
     var numerosPosibles = maximo - minimo;
@@ -12,7 +12,7 @@ function indexRandom(minimo, maximo) {    //fx reutilizable
 
 let numeroAleatorio = indexRandom(0, 5);
 let palabraSeleccionada = poolPalabras[numeroAleatorio];
-const letrasArray = [...palabraSeleccionada]; //transform string en array
+const letrasArray = [...palabraSeleccionada]; //transforma el string en array
 
 /* creo un array de guiones similar a la palabra para ser completado, se muestra al usuario en <H2> palabraAdivina */
 
@@ -23,7 +23,7 @@ for (let i = 0; i < letrasArray.length; i++) {
 
 document.getElementById('palabraAdivina').innerHTML = completandoPalabra.join('');  //sacamos las comas
 
-// muestro la palabra secreta temporlmente para facilitar las pruebas del código
+// muestro la palabra secreta temporalmente para facilitar las pruebas del código
 let probando = document.getElementById('probando');
 probando.innerHTML = letrasArray;
 
@@ -31,25 +31,33 @@ probando.innerHTML = letrasArray;
 const jugar = document.getElementById('botonInicio');
 jugar.addEventListener('click', jugando); //lanza la función
 let vidasRestantes = 7;
+let puntaje = 0;
 
 function jugando() {
     let letraIngresada = document.getElementById('letraUsuario');
     let letra = letraIngresada.value;
     let i = 0;
     let laLetraNoEsta = true; //para ciclo cuenta de vidas
-
+    let record = [];
+    
     //verifica si la letra existe en palabra
 
     for (let i = 0; i < letrasArray.length; i++) {
         if (letrasArray[i] == letraIngresada.value) {
             completandoPalabra[i] = letraIngresada.value;
+            record.push(i);
             laLetraNoEsta = false;
+            puntaje = puntaje + (record.length * 10);
+
+            document.getElementById('puntajeActual').innerHTML = puntaje;
             document.getElementById('palabraAdivina').innerHTML = completandoPalabra.join('');
             document.getElementById('mensajeUsuario').innerHTML = "Muy bien, tenemos coincidencias"
             document.getElementById('segundoMensaje').innerHTML = "Ingresa la siguiente letra"
 
             if ((completandoPalabra.includes(' _ ')) != true) {
                 alert('GANASTE, tu palabra está completa')
+                puntaje = puntaje + 50;
+                document.getElementById('puntajeActual').innerHTML = puntaje;           
             }
         }
     }

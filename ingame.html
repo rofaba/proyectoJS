@@ -17,13 +17,27 @@
 </head>
 
 <body>
+    <header>
 
-    <main>
+    <div class="contenedorSuperior">
         <div id="indicadorVidas">
                 <p> Intentos disponibles</p>
                 <h1 id="numeroVidas"> 7 </h1>
             </div>
+            
+            <div id="records">
+                <p> Puntaje</p>
+                <h1 id="puntajeActual"> 000 </h1>
+                <p> Puntaje Máximo Anterior</p>
+                <h1 id="puntajeMaximo"> 100 </h1>
+            </div>
+    </div>
 
+    </header>
+        
+    <main>
+
+      
         <div class="contenedor">
 
             
@@ -54,11 +68,23 @@
 
         </div>
         </div>
-        <nav class="barraNav">
+
+        <nav> 
+
+            <div class = 'navegacion'>
+            
+            <nav class="barraNav">
+                <a href="/index.html" class = "eleccion"> || Inicio ||</a>
+                <a href="./personajes.html" class = "eleccion" > || Eleccion personaje ||</a>
+                <a href="./ingame.html" class = "eleccion" > || Iniciar Juego ||</a>
+            </nav>
+        </div>  
+        <div class="barraNavPersonajes"></div>
             <a href="index.html"> Inicio</a>
             <a href="./personajes.html"> Eleccion personaje</a>
             <a href="./ingame.html"> Iniciar Juego</a>
         </nav>
+    
     </main>
 
     <footer>Derechos Reservados</footer>
