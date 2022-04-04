@@ -3,8 +3,37 @@
 /* Cree [poolPalabras] como Array base del juego, con la función (indexRandom) obtengo un número entero al azar y con ese número selecciono la palabras para jugar desde el array base */
 let caracter;
 let personaje;
-   
+let datosPersonaje;
+let recuperarPersonaje;
+
+//adquiere desde Local Storage con y sin JSON el personaje seleccionado, para mostrarlo
 document.getElementById('personajeSeleccionado').innerHTML = localStorage.getItem("personaje");
+
+let botonMostrar = document.getElementById('muestraPersonaje');
+botonMostrar.addEventListener("click",mostrar)
+
+function mostrar(){
+
+    recuperarPersonaje = JSON.parse(localStorage.getItem("personajeDatos"));
+   
+    document.getElementById('muestralo1').innerHTML = recuperarPersonaje.edad;
+    document.getElementById('muestralo2').innerHTML = recuperarPersonaje.ocupacion;
+    document.getElementById('muestralo3').innerHTML = recuperarPersonaje.personalidad;
+
+}
+
+let botonMostrar2 = document.getElementById('ocultaPersonaje');
+botonMostrar2.addEventListener("click",ocultar)
+
+
+function ocultar(){
+
+    document.getElementById('muestralo1').innerHTML = " ";
+    document.getElementById('muestralo2').innerHTML = " ";
+    document.getElementById('muestralo3').innerHTML = " ";
+
+}
+
 
 const poolPalabras = ['palabras', 'para', 'prueba', 'juego', 'colgado', 'ultima'];
 
@@ -27,8 +56,6 @@ for (let i = 0; i < letrasArray.length; i++) {
 }
 
 document.getElementById('palabraAdivina').innerHTML = completandoPalabra.join('');  //sacamos las comas
-
-
 
 // muestro la palabra secreta temporalmente para facilitar las pruebas del código
 let probando = document.getElementById('probando');
@@ -62,7 +89,7 @@ function jugando() {
             document.getElementById('segundoMensaje').innerHTML = "Ingresa la siguiente letra"
 
             if ((completandoPalabra.includes(' _ ')) != true) {
-                alert('GANASTE, tu palabra está completa')
+                ganaste();
                 puntaje = puntaje + 50;
                 document.getElementById('puntajeActual').innerHTML = puntaje;           
             }
@@ -73,8 +100,39 @@ function jugando() {
         document.getElementById('numeroVidas').innerHTML = vidasRestantes;
         document.getElementById('mensajeUsuario').innerHTML = "Esa letra no está en tu palabra"
         document.getElementById('segundoMensaje').innerHTML = "En la próxima tendrás mejor suerte, vamos!"
-    }
-    if (vidasRestantes == 0) {
-        alert('tus intentos se acabaron, PERDISTE');
-    }
+        }
+           if (vidasRestantes == 0) {
+
+            perdiste();
+            
+        } 
+}
+    
+function perdiste() {
+    let mensajeFinal = document.getElementById ('ingresarDatos');
+    let mensajeFinal2 = document.getElementById('probando');
+    let mensajeInferior = document.getElementById('mensajeUsuario');
+    mensajeInferior.innerHTML = " ";
+    mensajeFinal.innerHTML = "PERDISTE!!!"
+    mensajeFinal.style.fontSize = "5rem";
+    mensajeFinal.style.color = "red";
+    mensajeFinal2.style.fontSize = "2rem";
+    mensajeFinal2.innerHTML = `Tu palabra era " ${palabraSeleccionada} " `;
+    document.getElementById('segundoMensaje').
+    innerHTML = "Juega otra vez!!!!"
+
+}
+
+function ganaste() {
+    
+    let mensajeFinal = document.getElementById ('ingresarDatos');
+    let mensajeFinal2 = document.getElementById('probando');
+    let mensajeInferior = document.getElementById('mensajeUsuario');
+    mensajeInferior.innerHTML = " ";
+    mensajeFinal.innerHTML = "GANASTE!!!!"
+    mensajeFinal.style.fontSize = "5rem";
+    mensajeFinal.style.color = "blue";
+    mensajeFinal2.innerHTML = " ";
+    document.getElementById('segundoMensaje').
+    innerHTML = "Juega otra vez!!!!"
 }

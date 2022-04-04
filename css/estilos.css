@@ -43,7 +43,7 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width: 30rem;
+  width: 40rem;
   height: 4rem;
   background-color: #ffd90f;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -142,6 +142,13 @@ h2 {
   font-size: 3rem;
 }
 
+.botones{
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+
+
 .contenedorBase {
   display:block;
 }
@@ -237,6 +244,7 @@ text-align: center;
   padding-top: 2rem;
   font-size: 1.5rem;
 }  
+
 
 #desafioDOM {
   margin-top: 2rem;
