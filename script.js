@@ -7,15 +7,43 @@ let datosPersonaje;
 let recuperarPersonaje;
 
 //adquiere desde Local Storage con y sin JSON el personaje seleccionado, para mostrarlo
-document.getElementById('personajeSeleccionado').innerHTML = localStorage.getItem("personaje");
+
+let persoFondo = document.getElementById('personajeSeleccionado');
+persoFondo.innerHTML = localStorage.getItem("personaje");
+
+// alert(localStorage.getItem("personaje"));
+
+switch (localStorage.getItem("personaje")) {
+
+    case 'Homero Simpson':
+        document.body.style.backgroundImage = "url('../imagenes/fondoHomero.webp')";
+        document.getElementById('jugando').src = '../imagenes/homeroInicial.webp';
+        
+
+        break;
+
+    case 'Bart Simpson':
+        document.body.style.backgroundImage = "url('../imagenes/fondoBart.webp')";
+        document.getElementById('jugando').src = '../imagenes/bartInicial.png';
+        break;
+
+    case 'Lisa Simpson':
+        document.body.style.backgroundImage = "url('../imagenes/fondoLisa.jpeg')";
+        document.getElementById('jugando').src = '../imagenes/lisaInicial.jpeg';
+
+        break;
+
+    default:
+
+}
 
 let botonMostrar = document.getElementById('muestraPersonaje');
-botonMostrar.addEventListener("click",mostrar)
+botonMostrar.addEventListener("click", mostrar)
 
-function mostrar(){
+function mostrar() {
 
     recuperarPersonaje = JSON.parse(localStorage.getItem("personajeDatos"));
-   
+
     document.getElementById('muestralo1').innerHTML = recuperarPersonaje.edad;
     document.getElementById('muestralo2').innerHTML = recuperarPersonaje.ocupacion;
     document.getElementById('muestralo3').innerHTML = recuperarPersonaje.personalidad;
@@ -23,10 +51,10 @@ function mostrar(){
 }
 
 let botonMostrar2 = document.getElementById('ocultaPersonaje');
-botonMostrar2.addEventListener("click",ocultar)
+botonMostrar2.addEventListener("click", ocultar)
 
 
-function ocultar(){
+function ocultar() {
 
     document.getElementById('muestralo1').innerHTML = " ";
     document.getElementById('muestralo2').innerHTML = " ";
@@ -37,10 +65,10 @@ function ocultar(){
 
 const poolPalabras = ['palabras', 'para', 'prueba', 'juego', 'colgado', 'ultima'];
 
-function indexRandom(minimo, maximo) {    //fx reutilizable
+function indexRandom(minimo, maximo) { //fx reutilizable
     var numerosPosibles = maximo - minimo;
     var random = Math.random() * (numerosPosibles + 1);
-    random = Math.floor(random);         // transformación a nº entero
+    random = Math.floor(random); // transformación a nº entero
     return minimo + random;
 }
 
@@ -55,7 +83,7 @@ for (let i = 0; i < letrasArray.length; i++) {
     completandoPalabra.push(' _ ');
 }
 
-document.getElementById('palabraAdivina').innerHTML = completandoPalabra.join('');  //sacamos las comas
+document.getElementById('palabraAdivina').innerHTML = completandoPalabra.join(''); //sacamos las comas
 
 // muestro la palabra secreta temporalmente para facilitar las pruebas del código
 let probando = document.getElementById('probando');
@@ -73,7 +101,7 @@ function jugando() {
     let i = 0;
     let laLetraNoEsta = true; //para ciclo cuenta de vidas
     let record = [];
-    
+
     //verifica si la letra existe en palabra
 
     for (let i = 0; i < letrasArray.length; i++) {
@@ -91,7 +119,7 @@ function jugando() {
             if ((completandoPalabra.includes(' _ ')) != true) {
                 ganaste();
                 puntaje = puntaje + 50;
-                document.getElementById('puntajeActual').innerHTML = puntaje;           
+                document.getElementById('puntajeActual').innerHTML = puntaje;
             }
         }
     }
@@ -100,16 +128,16 @@ function jugando() {
         document.getElementById('numeroVidas').innerHTML = vidasRestantes;
         document.getElementById('mensajeUsuario').innerHTML = "Esa letra no está en tu palabra"
         document.getElementById('segundoMensaje').innerHTML = "En la próxima tendrás mejor suerte, vamos!"
-        }
-           if (vidasRestantes == 0) {
+    }
+    if (vidasRestantes == 0) {
 
-            perdiste();
-            
-        } 
+        perdiste();
+
+    }
 }
-    
+
 function perdiste() {
-    let mensajeFinal = document.getElementById ('ingresarDatos');
+    let mensajeFinal = document.getElementById('ingresarDatos');
     let mensajeFinal2 = document.getElementById('probando');
     let mensajeInferior = document.getElementById('mensajeUsuario');
     mensajeInferior.innerHTML = " ";
@@ -124,8 +152,8 @@ function perdiste() {
 }
 
 function ganaste() {
-    
-    let mensajeFinal = document.getElementById ('ingresarDatos');
+
+    let mensajeFinal = document.getElementById('ingresarDatos');
     let mensajeFinal2 = document.getElementById('probando');
     let mensajeInferior = document.getElementById('mensajeUsuario');
     mensajeInferior.innerHTML = " ";
