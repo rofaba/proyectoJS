@@ -4,13 +4,13 @@ class Personaje {
     constructor(nombre, edad, ocupacion, personalidad) {
         this.nombre = nombre;
         this.edad = edad;
-        this.ocupacion = ocupacion; 
+        this.ocupacion = ocupacion;
         this.personalidad = personalidad;
     }
 }
-const perso1 = new Personaje ("Homero", "39 años", "Técnico Nuclear", "Un poco torpe pero divertido" );
-const perso2 = new Personaje ("Bart", "10 años", "Estudiante", "Astuto y travieso, siempre ganador");
-const perso3 = new Personaje ("Lisa", "8 años", "Estudiante", "Muy responsable, niña genio");
+const perso1 = new Personaje("Homero", "39 años", "Técnico Nuclear", "Un poco torpe pero divertido");
+const perso2 = new Personaje("Bart", "10 años", "Estudiante", "Astuto y travieso, siempre ganador");
+const perso3 = new Personaje("Lisa", "8 años", "Estudiante", "Muy responsable, niña genio");
 
 const poolPersonajes = [perso1, perso2, perso3];
 
@@ -57,26 +57,26 @@ function seleccionarHomero() {
     fotoSelect.src = "imagenes/personajeHomero.jpeg";
     nombreNuevo.innerHTML = 'Homero Simpson';
     nuevoTexto.innerHTML = 'Click en Jugar para empezar';
-    localStorage.setItem("personaje",'Homero Simpson');
+    localStorage.setItem("personaje", 'Homero Simpson');
     localStorage.setItem('personajeDatos', perso1Guardado);
 }
 function seleccionarBart() {
     fotoSelect.src = "imagenes/personajeBart.jpg";
     nombreNuevo.innerHTML = 'Bart Simpson';
     nuevoTexto.innerHTML = 'Click en Jugar para empezar';
-    localStorage.setItem("personaje",'Bart Simpson');
+    localStorage.setItem("personaje", 'Bart Simpson');
     localStorage.setItem('personajeDatos', perso2Guardado);
 }
 function seleccionarLisa() {
     fotoSelect.src = "imagenes/personajeLisa.jpeg";
     nombreNuevo.innerHTML = 'Lisa Simpson';
     nuevoTexto.innerHTML = 'Click en Jugar para empezar';
-    localStorage.setItem("personaje",'Lisa Simpson');
+    localStorage.setItem("personaje", 'Lisa Simpson');
     localStorage.setItem('personajeDatos', perso3Guardado);
 }
-tarjeta1.addEventListener("click",seleccionarHomero);
-tarjeta2.addEventListener("click",seleccionarBart);
-tarjeta3.addEventListener("click",seleccionarLisa);
+tarjeta1.addEventListener("click", seleccionarHomero);
+tarjeta2.addEventListener("click", seleccionarBart);
+tarjeta3.addEventListener("click", seleccionarLisa);
 
 tarjeta1.addEventListener("mouseover", resaltarHomero);
 tarjeta1.addEventListener("mouseleave", normalizarHomero);

@@ -41,7 +41,7 @@ body {
 }
 
 .barraNav {
-  margin-top: 10rem;
+  margin-top: 2rem;
   border-radius: 10px;
   display: flex;
   justify-content: space-around;
@@ -92,6 +92,7 @@ h2 {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  margin-bottom: 15rem
 }
 
 .card {
@@ -101,12 +102,15 @@ h2 {
   border: solid black 5px;
   border-radius: 20px;
 }
- #bart {
-   margin-top: 0.5rem;
+
+#bart {
+  margin-top: 0.5rem;
 }
+
 #homero {
   margin-top: 0.5rem;
 }
+
 #lisa {
   margin-top: 0.5rem;
 }
@@ -171,9 +175,10 @@ h2 {
 .contenedor {
   height: 30rem;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   padding-left: 5rem;
 }
+
 
 .bloqueBusqueda {
   display: block;
@@ -191,6 +196,9 @@ h2 {
   justify-items: center;
   width: 30rem;
   height: 30rem;
+  margin-left: -12rem;
+  margin-right: 2rem;
+
 }
 
 .personajeActivo .img {
@@ -201,29 +209,16 @@ h2 {
 .bloqueBusqueda {
   width: 40rem;
   height: 30rem;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 
-}
-
-#palabraAdivina {
-  height: 10rem;
-  text-align: center;
-  align-items: center;
+  padding-top: 5rem;
 }
 
 .controles {
   justify-content: space-around;
   align-items: center;
 
-}
-
-.ingresarDatos {
-  width: 30rem;
-  height: 10rem;
-  justify-items: center;
-  align-content: center;
-  padding-top: 5rem;
 }
 
 #jugando {
@@ -286,10 +281,7 @@ h2 {
   justify-content: center;
 }
 
-#letraUsuario {
-  margin-left: 2rem;
-  text-transform: uppercase;
-}
+
 
 .iniciarJuego {
   height: 4rem;
@@ -299,38 +291,71 @@ h2 {
   margin-left: 2rem;
 }
 
-#letraUsuario {
-  font-size: 4rem;
-  width: 5rem;
-  height: 5rem;
 
-}
 
 .mensajesJuego {
-  height: 3rem;
+  height: 6rem;
+  margin-top: 2rem;
   font-size: 2rem;
   display: block;
   text-align: center;
+
+}
+
+#ingresarDatos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30rem;
+  height: 6rem;
+  margin-bottom: 2rem;
+
+}
+
+#letraUsuario {
+  text-transform: uppercase;
+  font-size: 4rem;
+  text-align: center;
+  width: 5rem;
+  height: 100%;
+  margin-right: 2rem;
+  background-color: lightsteelblue;
+
 }
 
 #botonInicio {
-  width: 8rem;
-  height: 4rem;
+  width: 12rem;
+  height: 100%;
+  margin-left: 2rem;
+  background-color: lightsteelblue;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: bold;
 }
 
 #palabraAdivina {
+  margin-top: -3rem;
+  height: 10rem;
+  text-align: center;
+  align-items: center;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   text-justify: center;
   text-transform: uppercase;
-  font-size: 4rem;
+  font-size: 5rem;
   align-items: baseline;
+
 
 }
 
 #probando {
-  text-transform: uppercase;
   height: 8rem;
   align-items: center;
   text-align: center;
   font-size: 3rem;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: lighter;
+  padding-top: 2rem;
+}
+
+#desafioJSON {
+  display: flex;
 }

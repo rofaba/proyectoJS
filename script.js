@@ -16,9 +16,9 @@ persoFondo.innerHTML = localStorage.getItem("personaje");
 switch (localStorage.getItem("personaje")) {
 
     case 'Homero Simpson':
-        document.body.style.backgroundImage = "url('../imagenes/fondoHomero.webp')";
+        document.body.style.backgroundImage = "url('../imagenes/fondoHomero.jpg')";
         document.getElementById('jugando').src = '../imagenes/homeroInicial.webp';
-        
+
 
         break;
 
@@ -29,7 +29,7 @@ switch (localStorage.getItem("personaje")) {
 
     case 'Lisa Simpson':
         document.body.style.backgroundImage = "url('../imagenes/fondoLisa.jpeg')";
-        document.getElementById('jugando').src = '../imagenes/lisaInicial.jpeg';
+        document.getElementById('jugando').src = '../imagenes/lisaInicial.png';
 
         break;
 
@@ -62,8 +62,7 @@ function ocultar() {
 
 }
 
-
-const poolPalabras = ['palabras', 'para', 'prueba', 'juego', 'colgado', 'ultima'];
+const poolPalabras = ['primera', 'probando', 'palabras', 'para', 'juego', 'colgado', 'ultima'];
 
 function indexRandom(minimo, maximo) { //fx reutilizable
     var numerosPosibles = maximo - minimo;
@@ -72,7 +71,7 @@ function indexRandom(minimo, maximo) { //fx reutilizable
     return minimo + random;
 }
 
-let numeroAleatorio = indexRandom(0, 5);
+let numeroAleatorio = indexRandom(0, 6);
 let palabraSeleccionada = poolPalabras[numeroAleatorio];
 const letrasArray = [...palabraSeleccionada]; //transforma el string en array
 
@@ -84,10 +83,6 @@ for (let i = 0; i < letrasArray.length; i++) {
 }
 
 document.getElementById('palabraAdivina').innerHTML = completandoPalabra.join(''); //sacamos las comas
-
-// muestro la palabra secreta temporalmente para facilitar las pruebas del código
-let probando = document.getElementById('probando');
-probando.innerHTML = letrasArray;
 
 //EMPEZANDO JUEGO
 const jugar = document.getElementById('botonInicio');
@@ -147,7 +142,7 @@ function perdiste() {
     mensajeFinal2.style.fontSize = "2rem";
     mensajeFinal2.innerHTML = `Tu palabra era " ${palabraSeleccionada} " `;
     document.getElementById('segundoMensaje').
-    innerHTML = "Juega otra vez!!!!"
+        innerHTML = "Juega otra vez!!!!"
 
 }
 
@@ -159,8 +154,8 @@ function ganaste() {
     mensajeInferior.innerHTML = " ";
     mensajeFinal.innerHTML = "GANASTE!!!!"
     mensajeFinal.style.fontSize = "5rem";
-    mensajeFinal.style.color = "blue";
+    mensajeFinal.style.color = "green";
     mensajeFinal2.innerHTML = " ";
     document.getElementById('segundoMensaje').
-    innerHTML = "Juega otra vez!!!!"
+        innerHTML = "Juega otra vez!!!!"
 }
