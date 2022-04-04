@@ -6,20 +6,17 @@ let personaje;
 let datosPersonaje;
 let recuperarPersonaje;
 
-//adquiere desde Local Storage con y sin JSON el personaje seleccionado, para mostrarlo
+//adquiere desde Local Storage con y sin JSON el personaje seleccionado y sus caracteristicas para mostrarlas
 
 let persoFondo = document.getElementById('personajeSeleccionado');
 persoFondo.innerHTML = localStorage.getItem("personaje");
 
-// alert(localStorage.getItem("personaje"));
-
+//eleccion background de acuerdo a personaje selecionado
 switch (localStorage.getItem("personaje")) {
 
     case 'Homero Simpson':
         document.body.style.backgroundImage = "url('../imagenes/fondoHomero.jpg')";
         document.getElementById('jugando').src = '../imagenes/homeroInicial.webp';
-
-
         break;
 
     case 'Bart Simpson':
@@ -30,11 +27,9 @@ switch (localStorage.getItem("personaje")) {
     case 'Lisa Simpson':
         document.body.style.backgroundImage = "url('../imagenes/fondoLisa.jpeg')";
         document.getElementById('jugando').src = '../imagenes/lisaInicial.png';
-
         break;
 
     default:
-
 }
 
 let botonMostrar = document.getElementById('muestraPersonaje');
@@ -47,19 +42,15 @@ function mostrar() {
     document.getElementById('muestralo1').innerHTML = recuperarPersonaje.edad;
     document.getElementById('muestralo2').innerHTML = recuperarPersonaje.ocupacion;
     document.getElementById('muestralo3').innerHTML = recuperarPersonaje.personalidad;
-
 }
 
 let botonMostrar2 = document.getElementById('ocultaPersonaje');
 botonMostrar2.addEventListener("click", ocultar)
 
-
 function ocultar() {
-
     document.getElementById('muestralo1').innerHTML = " ";
     document.getElementById('muestralo2').innerHTML = " ";
     document.getElementById('muestralo3').innerHTML = " ";
-
 }
 
 const poolPalabras = ['primera', 'probando', 'palabras', 'para', 'juego', 'colgado', 'ultima'];
