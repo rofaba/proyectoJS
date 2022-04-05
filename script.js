@@ -15,18 +15,18 @@ persoFondo.innerHTML = localStorage.getItem("personaje");
 switch (localStorage.getItem("personaje")) {
 
     case 'Homero Simpson':
-        document.body.style.backgroundImage = "url('../imagenes/fondoHomero.jpg')";
-        document.getElementById('jugando').src = '../imagenes/homeroInicial.webp';
+        document.body.style.backgroundImage = "url('./imagenes/fondoHomero.jpg')";
+        document.getElementById('jugando').src = './imagenes/homeroInicial.webp';
         break;
 
     case 'Bart Simpson':
-        document.body.style.backgroundImage = "url('../imagenes/fondoBart.webp')";
-        document.getElementById('jugando').src = '../imagenes/bartInicial.png';
+        document.body.style.backgroundImage = "url('./imagenes/fondoBart.webp')";
+        document.getElementById('jugando').src = './imagenes/bartInicial.png';
         break;
 
     case 'Lisa Simpson':
-        document.body.style.backgroundImage = "url('../imagenes/fondoLisa.jpeg')";
-        document.getElementById('jugando').src = '../imagenes/lisaInicial.png';
+        document.body.style.backgroundImage = "url('./imagenes/fondoLisa.jpeg')";
+        document.getElementById('jugando').src = './imagenes/lisaInicial.png';
         break;
 
     default:
