@@ -9,9 +9,11 @@ let recuperarPersonaje;
 //adquiere desde Local Storage con y sin JSON el personaje seleccionado y sus caracteristicas para mostrarlas
 
 let persoFondo = document.getElementById('personajeSeleccionado');
-persoFondo.innerHTML = localStorage.getItem("personaje");
+persoFondo.innerHTML = localStorage.getItem("personaje") || "Homero Simpsons"; 
 
-//eleccion background de acuerdo a personaje selecionado
+// OPTIMIZACION: USO DE OPERADOR LOGICO OR
+
+//asigna Homero si no se selecciona alguno. //eleccion background de acuerdo a personaje selecionado
 switch (localStorage.getItem("personaje")) {
 
     case 'Homero Simpson':
@@ -30,6 +32,8 @@ switch (localStorage.getItem("personaje")) {
         break;
 
     default:
+        document.body.style.backgroundImage = "url('./imagenes/fondoHomero.jpg')";
+        document.getElementById('jugando').src = './imagenes/homeroInicial.webp'; //Homero por defecto
 }
 
 let botonMostrar = document.getElementById('muestraPersonaje');
@@ -38,10 +42,14 @@ botonMostrar.addEventListener("click", mostrar)
 function mostrar() {
 
     recuperarPersonaje = JSON.parse(localStorage.getItem("personajeDatos"));
+    
+    // OPTIMIZACION: USO DE DESESTRUCTURACION
 
-    document.getElementById('muestralo1').innerHTML = recuperarPersonaje.edad;
-    document.getElementById('muestralo2').innerHTML = recuperarPersonaje.ocupacion;
-    document.getElementById('muestralo3').innerHTML = recuperarPersonaje.personalidad;
+    let {edad, ocupacion, personalidad} = recuperarPersonaje;
+
+    document.getElementById('muestralo1').innerHTML = edad;
+    document.getElementById('muestralo2').innerHTML = ocupacion;
+    document.getElementById('muestralo3').innerHTML = personalidad;
 }
 
 let botonMostrar2 = document.getElementById('ocultaPersonaje');
@@ -66,10 +74,10 @@ let numeroAleatorio = indexRandom(0, 6);
 let palabraSeleccionada = poolPalabras[numeroAleatorio];
 const letrasArray = [...palabraSeleccionada]; //transforma el string en array
 
-/* creo un array de guiones similar a la palabra para ser completado, se muestra al usuario en <H2> palabraAdivina */
+//OPTIMIZACION: USO OPERADOR SPREAD
 
 let completandoPalabra = [];
-for (let i = 0; i < letrasArray.length; i++) {
+for (let i = 0; i < letrasArray.length; i++) { 
     completandoPalabra.push(' _ ');
 }
 
@@ -110,16 +118,14 @@ function jugando() {
         }
     }
     if (laLetraNoEsta) {
-        vidasRestantes--;
+        vidasRestantes--; //OPTIMIZACION: USO OPERADOR --
         document.getElementById('numeroVidas').innerHTML = vidasRestantes;
         document.getElementById('mensajeUsuario').innerHTML = "Esa letra no está en tu palabra"
         document.getElementById('segundoMensaje').innerHTML = "En la próxima tendrás mejor suerte, vamos!"
     }
-    if (vidasRestantes == 0) {
+    vidasRestantes == 0 && perdiste();  //OPTIMIZACION USO OPERADOR LOGICO AND
 
-        perdiste();
-
-    }
+    
 }
 
 function perdiste() {
